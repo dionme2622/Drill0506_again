@@ -47,10 +47,10 @@ def update_world():
     global cx, cy
     global t
     frame = (frame + 1) % 8
-
-    cx = (1 - t) * sx + t * hx
-    cy = (1 - t) * sy + t * hy
-    t += 0.001
+    if t <= 1.0:
+        cx = (1 - t) * sx + t * hx
+        cy = (1 - t) * sy + t * hy
+        t += 0.001
 reset_world()
 open_canvas(TUK_WIDTH, TUK_HEIGHT)
 hide_cursor()
