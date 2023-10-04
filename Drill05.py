@@ -1,5 +1,6 @@
 from pico2d import *
 import random
+
 TUK_WIDTH, TUK_HEIGHT = 1280, 1024
 
 
@@ -18,7 +19,6 @@ def handle_events():
             running = False
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             running = False
-    pass
 
 
 def reset_world():
@@ -30,11 +30,17 @@ def reset_world():
     running = True
     cx, cy = TUK_WIDTH // 2, TUK_HEIGHT // 2
     frame = 0
-    t = 0.0
     action = 3;
+    set_new_target_arrow()
+
+
+def set_new_target_arrow():
+    global t, sx, sy, hx, hy
+    t = 0.0
     sx, sy = cx, cy
     hx, hy = random.randint(0, TUK_WIDTH), random.randint(0, TUK_HEIGHT)
     # hx, hy = TUK_WIDTH - 50, TUK_HEIGHT - 50
+
 
 def render_world():
     clear_canvas()
@@ -55,6 +61,9 @@ def update_world():
         cx = (1 - t) * sx + t * hx
         cy = (1 - t) * sy + t * hy
         t += 0.01
+    else:
+        set_new_target_arrow()
+
 reset_world()
 open_canvas(TUK_WIDTH, TUK_HEIGHT)
 hide_cursor()
