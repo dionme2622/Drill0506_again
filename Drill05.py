@@ -62,6 +62,7 @@ def update_world():
         cy = (1 - t) * sy + t * hy
         t += 0.01
     else:
+        cx, cy = hx, hy     # 캐릭터 위치를 목적지 위치와 강제로 정확히 일치시킨다.
         set_new_target_arrow()
 
 reset_world()
