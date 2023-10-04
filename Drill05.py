@@ -31,8 +31,8 @@ def reset_world():
     frame = 0
     t = 0.0
     sx, sy = cx, cy
-    # hx, hy = random.randint(0, TUK_WIDTH), random.randint(0, TUK_HEIGHT)
-    hx, hy = TUK_WIDTH - 50, TUK_HEIGHT - 50
+    hx, hy = random.randint(0, TUK_WIDTH), random.randint(0, TUK_HEIGHT)
+    # hx, hy = TUK_WIDTH - 50, TUK_HEIGHT - 50
 
 def render_world():
     clear_canvas()
@@ -50,7 +50,7 @@ def update_world():
     if t <= 1.0:
         cx = (1 - t) * sx + t * hx
         cy = (1 - t) * sy + t * hy
-        t += 0.001
+        t += 0.01
 reset_world()
 open_canvas(TUK_WIDTH, TUK_HEIGHT)
 hide_cursor()
