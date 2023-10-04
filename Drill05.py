@@ -4,7 +4,8 @@ TUK_WIDTH, TUK_HEIGHT = 1280, 1024
 
 
 def load_resources():
-    global TUK_ground, character
+    global TUK_ground, character, arrow
+    arrow = load_image('hand_arrow.png')
     TUK_ground = load_image('TUK_GROUND.png')
     character = load_image('animation_sheet.png')
 
