@@ -22,10 +22,12 @@ def handle_events():
 
 def reset_world():
     global running, x, y, frame
+    global hx, hy
     running = True
     x, y = TUK_WIDTH // 2, TUK_HEIGHT // 2
     frame = 0
 
+    hx, hy = TUK_WIDTH - 50, TUK_HEIGHT - 50
 
 def render_world():
     clear_canvas()
